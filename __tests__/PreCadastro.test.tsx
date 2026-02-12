@@ -54,7 +54,7 @@ describe("PreCadastro Form Component", () => {
     fireEvent.click(toggleButton);
     expect(passwordInput.type).toBe("text");
     
-    // Verificamos se o label mudou para "Esconder senha"
+      // Verificamos se o label mudou para "Esconder senha"
     expect(screen.getByLabelText(/Esconder senha/i)).toBeInTheDocument();
   });
 });
