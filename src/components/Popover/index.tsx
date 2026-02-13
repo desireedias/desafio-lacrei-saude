@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { Icon } from "../Button/styles";
 import * as S from "./styles";
 import { ROUTES } from "@/constants/routes";
+import { IconMedical, IconPerson } from "../Icons";
 
 interface PopoverProps {
   onClose: () => void;
@@ -39,7 +40,9 @@ export const Popover = ({ onClose }: PopoverProps) => {
           aria-label="login de paciente"
         >
           <S.IconWrapper>
-            <Icon className="material-symbols-outlined">person</Icon>
+            <Icon>
+              <IconPerson size={24}/>
+            </Icon>
           </S.IconWrapper>
           <S.LabelItem>Paciente</S.LabelItem>
         </S.StyledLink>
@@ -51,7 +54,9 @@ export const Popover = ({ onClose }: PopoverProps) => {
           aria-label="login de profissional"
         >
           <S.IconWrapper>
-            <Icon className="material-symbols-outlined">medical_services</Icon>
+            <Icon>
+              <IconMedical size={24} />
+            </Icon>
           </S.IconWrapper>
           <S.LabelItem>Profissional</S.LabelItem>
         </S.StyledLink>

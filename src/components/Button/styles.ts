@@ -24,7 +24,7 @@ const variantStyles = {
     background-color: transparent;
     color: ${(props) => props.theme.colors.emerald60};
     border: 2px solid ${(props) => props.theme.colors.emerald60};
-     box-shadow: ${(props) => props.theme.shadows.md};
+    box-shadow: ${(props) => props.theme.shadows.md};
     font-size: 18px;
     &:active {
       background-color: ${(props) => props.theme.colors.gray10};
@@ -44,15 +44,13 @@ const variantStyles = {
   `,
 };
 
-export const Icon = styled.span`
-  font-family: "Material Symbols Outlined";
-  font-size: 24px;
+export const Icon = styled.div`
   width: 24px;
   height: 24px;
-  display: inline-block;
+  display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
+  color: inherit
 `;
 
 export const ButtonContainer = styled.button<ButtonProps>`

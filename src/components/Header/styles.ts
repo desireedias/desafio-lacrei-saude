@@ -19,7 +19,7 @@ export const HeaderContainer = styled.header`
     display: flex;
   }
 
-  ${(props) => props.theme.devices.desktop} {
+  ${(props) => props.theme.devices.tablet} {
     padding: 1.5rem 7rem;
 
     .logo-mobile,
@@ -50,7 +50,7 @@ export const ActionContainer = styled.div`
   justify-content: center;
   gap: ${(props) => props.theme.spacing.m};
 
-  ${(props) => props.theme.devices.desktop}{
+  ${(props) => props.theme.devices.tablet}{
     gap: 24px;
   }
 `;
@@ -63,7 +63,7 @@ export const DesktopButtonContainer = styled.div<{ $width: string }>`
  
   display: none;
 
-  ${(props) => props.theme.devices.desktop} {
+  ${(props) => props.theme.devices.tablet} {
     display: flex;
     align-items: center;
     justify-content: center;

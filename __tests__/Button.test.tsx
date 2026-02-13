@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@/styles/theme";
 import { Button } from "@/components/Button";
+import { IconHelp } from "@/components/Icons";
 
 describe("Button Component", () => {
   it("deve renderizar o ícone corretamente e responder ao clique", () => {
@@ -12,16 +13,20 @@ describe("Button Component", () => {
     // Renderiza com o ThemeProvider real  projeto
     render(
       <ThemeProvider theme={theme}>
-        <Button iconName="help" ariaLabel="ajuda" onClick={handleClick} />
+        <Button
+          icon={<IconHelp data-testid="icon-svg" />}
+          ariaLabel="ajuda"
+          onClick={handleClick}
+        />
       </ThemeProvider>,
     );
 
-    // Verificamos se o ícone (texto do Material Symbol) está na tela
-    const icon = screen.getByText("help");
+    // Verificamos se contém um elemento svg
+    const icon = screen.getByTestId("icon-svg");
     expect(icon).toBeInTheDocument();
 
     // Simula o clique no botão
-    const button = screen.getByRole("button");
+    const button = screen.getByRole("button", { name: /ajuda/i });
     fireEvent.click(button);
 
     // O testa se a função foi chamada?
@@ -31,7 +36,7 @@ describe("Button Component", () => {
   it("deve ter a acessibilidade correta (aria-label)", () => {
     render(
       <ThemeProvider theme={theme}>
-        <Button iconName="person" ariaLabel="usuario" />
+        <Button ariaLabel="usuario" />
       </ThemeProvider>,
     );
 

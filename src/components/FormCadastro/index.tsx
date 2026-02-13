@@ -11,6 +11,7 @@
 
   import * as S from "./styles";
   import Image from "next/image";
+import { IconVisibility, IconVisibilityLock } from "../Icons";
 
   export const preCadastroSchema = z.object({
     email: z
@@ -89,7 +90,7 @@
                   className="material-symbols-outlined"
                   aria-label={showPassword ? "Esconder senha" : "Mostrar senha"}
                 >
-                  {showPassword ? "visibility" : "visibility_off"}
+                  {showPassword ? (<IconVisibility size={24}/>) : (<IconVisibilityLock size={24}/>)}
                 </button>
               </S.InputContainer>
               {errors.senha && (

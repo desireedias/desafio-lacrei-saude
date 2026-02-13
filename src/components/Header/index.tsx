@@ -14,6 +14,7 @@ import {
   PopoverWrapper,
 } from "./styles";
 import Link from "next/link";
+import { IconArrowDow, IconHelp } from "../Icons";
 
 export const Header = () => {
   const pathname = usePathname();
@@ -25,35 +26,36 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Link href="/" aria-label="Voltar para página inicial">
-      <LogoWrapper>
-        <div className="logo-mobile">
-          <Image
-            src={logo}
-            height={16}
-            width={150}
-            alt="Logo Lacrei Saúde"
-            priority
-          />
-        </div>
-        <div className="logo-desktop">
-          <Image
-            src={logoDesktop}
-            height={24}
-            width={202}
-            alt="Logo Lacrei Saúde"
-            priority
-          />
-        </div>
-      </LogoWrapper>
-      
+        <LogoWrapper>
+          <div className="logo-mobile">
+            <Image
+              src={logo}
+              height={16}
+              width={150}
+              alt="Logo Lacrei Saúde"
+              priority
+            />
+          </div>
+          <div className="logo-desktop">
+            <Image
+              src={logoDesktop}
+              height={24}
+              width={202}
+              alt="Logo Lacrei Saúde"
+              priority
+            />
+          </div>
+        </LogoWrapper>
       </Link>
-      
 
       <ActionContainer>
         {!isPreCadastroPage && (
           <div className="desktop-only">
             <DesktopButtonContainer $width="174px">
-              <Button variant="ghost" ariaLabel="Ir para a página de quem somos">
+              <Button
+                variant="ghost"
+                ariaLabel="Ir para a página de quem somos"
+              >
                 Quem somos
               </Button>
             </DesktopButtonContainer>
@@ -62,16 +64,19 @@ export const Header = () => {
 
         <div className="mobile-only">
           <Button
-            variant={isPreCadastroPage ? "ghost" : "secondary"}
+            variant="ghost"
             ariaLabel="Ir para a página de ajuda"
-            iconName="help"
+            icon={<IconHelp size={24} />}
             onClick={() => console.log("ajuda clicada")}
           />
         </div>
 
         <div className="desktop-only">
           <DesktopButtonContainer $width="114px">
-            <Button variant={isPreCadastroPage ? "secondary" : "ghost"} ariaLabel="">
+            <Button
+              variant={isPreCadastroPage ? "secondary" : "ghost"}
+              ariaLabel=""
+            >
               Ajuda
             </Button>
           </DesktopButtonContainer>
@@ -83,7 +88,7 @@ export const Header = () => {
               <Button
                 variant="primary"
                 ariaLabel="abrir opções de entrada"
-                iconName="person"
+                icon={<IconArrowDow size={24} />}
                 onClick={() => setIsPopoverOpen(!isPopoverOpen)}
               />
             </div>
@@ -92,14 +97,16 @@ export const Header = () => {
                 <Button
                   variant="primary"
                   ariaLabel="abrir opções de entrada"
-                  iconName="expand_more" 
+                  icon={<IconArrowDow size={24} />}
                   onClick={() => setIsPopoverOpen(!isPopoverOpen)}
                 >
                   Entrar
                 </Button>
               </DesktopButtonContainer>
             </div>
-            {isPopoverOpen && <Popover onClose={() => setIsPopoverOpen(false)} />}
+            {isPopoverOpen && (
+              <Popover onClose={() => setIsPopoverOpen(false)} />
+            )}
           </PopoverWrapper>
         )}
       </ActionContainer>

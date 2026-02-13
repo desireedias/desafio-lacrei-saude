@@ -4,7 +4,7 @@ import * as S from "./styles";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
-  iconName?: string;
+  icon?: React.ReactNode;
   ariaLabel: string;
   fullWidth?: boolean;
   children?: React.ReactNode;
@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({
   variant = "primary",
-  iconName,
+  icon,
   ariaLabel,
   fullWidth = false,
   children,
@@ -26,11 +26,7 @@ export const Button = ({
       $fullWidth={fullWidth}
       {...rest}
     >
-      {iconName && (
-        <S.Icon className="material-symbols-outlined" aria-hidden="true">
-          {iconName}
-        </S.Icon>
-      )}
+      {icon && <S.Icon>{icon}</S.Icon>}
       {children && <span>{children}</span>}
     </S.ButtonContainer>
   );

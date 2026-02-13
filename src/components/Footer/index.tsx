@@ -9,6 +9,7 @@ import globalLogo from '../../assets/global-logo.svg'
 import Image from "next/image";
 import * as S from "./styles";
 import { Button } from "../Button";
+import { IconArrowUp } from "../Icons";
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -95,11 +96,12 @@ export const Footer = () => {
               <span>CNPJ: 51.265.351/0001-65</span>
             </S.LacreiInfosContainer>
             <Button
-              iconName="expand_less"
               onClick={scrollToTop}
               variant="secondary"
               ariaLabel="voltar ao topo da página"
-            ></Button>
+            >
+              <IconArrowUp size={24}/>
+            </Button>
           </S.FooterBotton>
         </S.FooterLeft>
       </div>
